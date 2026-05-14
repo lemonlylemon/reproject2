@@ -11,7 +11,7 @@ public class AlgorithmCase extends EthicsCase{
     private String biasType;
     
     public AlgorithmCase(String caseTitle, String description, String biasType) {
-        super(caseTitle, description, biasType);
+        super(caseTitle, description, "Misinformation Case");
         this.biasType = biasType;
     }
     
