@@ -11,9 +11,9 @@ public class Verdict {
     private String caseTitle;
     private String studentVerdict;
     private String reason;
-    private String DEFAULT_TITLE;
-    private String DEFAULT_VERDICT;
-    private String DEFAULT_REASON;
+    private String DEFAULT_TITLE = "N/A";
+    private String DEFAULT_VERDICT = "N/A";
+    private String DEFAULT_REASON = "N/A";
     
     public Verdict(){
         this.caseTitle = DEFAULT_TITLE;

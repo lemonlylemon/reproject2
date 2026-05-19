@@ -2,18 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowAdapter;
 /**
  *
- * @author 345954069
+ * @author 344813928
  */
 public class Scenario2 extends javax.swing.JFrame {
+    EthicsCase cases = MainMenu.cases[1]; // scenario number to match scenario frame
 
     /**
-     * Creates new form Scenario2
+     * Creates new form Scenario1
      */
     public Scenario2() {
         initComponents();
+        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowActivated(WindowEvent e) {
+                //add code here
+                String caseTitle = cases.getCaseTitle(); // get scenario info into strings
+                String caseDescription = cases.getCaseDescription();
+                String caseCategory = cases.getCategory();
+                
+                ScenarioName.setText(caseTitle); // display scenario info on jframe
+                DescriptionField.setText(caseDescription);
+                CategoryName.setText(caseCategory);
+            }
+        });
     }
 
     /**
@@ -25,57 +41,144 @@ public class Scenario2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        ScenarioHeader = new javax.swing.JLabel();
+        ScenarioName = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        CategoryName = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DescriptionField = new javax.swing.JTextArea();
+        EthicalButton = new javax.swing.JRadioButton();
+        UnethicalButton = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ReasoningField = new javax.swing.JTextArea();
+        SubmitButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        ScenarioHeader.setText("Scenario #2");
+
+        ScenarioName.setText("scene");
+
+        jLabel1.setText("Category:");
+
+        CategoryName.setText("catalyst");
+
+        DescriptionField.setColumns(20);
+        DescriptionField.setRows(5);
+        jScrollPane1.setViewportView(DescriptionField);
+
+        buttonGroup1.add(EthicalButton);
+        EthicalButton.setText("Ethical");
+
+        buttonGroup1.add(UnethicalButton);
+        UnethicalButton.setText("Unethical");
+
+        jLabel2.setText("Reasoning:");
+
+        ReasoningField.setColumns(20);
+        ReasoningField.setRows(5);
+        jScrollPane2.setViewportView(ReasoningField);
+
+        SubmitButton.setText("Next  >");
+        SubmitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ScenarioHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ScenarioName, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CategoryName))
+                        .addContainerGap(54, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(EthicalButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(UnethicalButton)
+                        .addGap(75, 75, 75))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(SubmitButton)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ScenarioHeader)
+                    .addComponent(ScenarioName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(CategoryName))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EthicalButton)
+                    .addComponent(UnethicalButton))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(SubmitButton)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Scenario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Scenario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Scenario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Scenario2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void SubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitButtonActionPerformed
+        // TODO add your handling code here:
+        cases.verdict.setReason(ReasoningField.getText()); // update verdict reasoning for this case
+        
+        String verd = "N/A";
+        if (EthicalButton.isSelected()) { // check if user selected ethical or unethical
+            verd = "Ethical";
+        } else if (UnethicalButton.isSelected()) {
+            verd = "Unethical";
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Scenario2().setVisible(true);
-            }
-        });
-    }
+        cases.verdict.setStudentVerdict(verd); // update verdict for this case
+        
+        new Scenario3().setVisible(true); // open next scenario frame
+        this.setVisible(false);
+    }//GEN-LAST:event_SubmitButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CategoryName;
+    private javax.swing.JTextArea DescriptionField;
+    private javax.swing.JRadioButton EthicalButton;
+    private javax.swing.JTextArea ReasoningField;
+    private javax.swing.JLabel ScenarioHeader;
+    private javax.swing.JLabel ScenarioName;
+    private javax.swing.JButton SubmitButton;
+    private javax.swing.JRadioButton UnethicalButton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
